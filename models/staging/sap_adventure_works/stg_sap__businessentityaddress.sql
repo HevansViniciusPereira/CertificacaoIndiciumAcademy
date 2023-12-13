@@ -1,6 +1,6 @@
 with
     fonte_businessentityaddress as (
-        select * 
+        select *
         from {{ source('sap_adventure_works', 'businessentityaddress') }}
     )
 

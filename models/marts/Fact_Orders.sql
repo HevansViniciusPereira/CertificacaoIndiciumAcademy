@@ -35,10 +35,12 @@ with
             , SalesOrderDetail.unitpricediscount
             , SalesOrderDetail.unitprice * SalesOrderDetail.orderqty as total_trated_value
             , SalesOrderDetail.unitprice * SalesOrderDetail.orderqty * (1 - SalesOrderDetail.unitpricediscount) as total_net_trated_value
+            , SalesOrderHeader.customerid
+            , SalesOrderHeader.territoryid
             , SalesOrderHeader.orderdate
             , SalesOrderHeader.shipdate
             , SalesOrderHeader.status
-            , CreditCard.cardtype as creditcardname
+            , CreditCard.cardtype
             , SalesOrderHeader.subtotal
             , SalesOrderHeader.taxamt
             , SalesOrderHeader.freight
