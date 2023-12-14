@@ -9,6 +9,7 @@ sources:
       - name: addresstype
       - name: billofmaterials
       - name: businessentity
+      - name: businessentityaddress
       - name: businessentitycontact
       - name: contacttype
       - name: countryregion

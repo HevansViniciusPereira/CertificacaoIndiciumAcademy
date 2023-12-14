@@ -1,0 +1,44 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: Dimensional table of customers.
+    columns:
+      - name: sk_customer
+        description: Surrogate key of the table.
+
+      - name: customerid
+        description: ID of customers.
+        tests:
+          - unique
+          - not null
+
+      - name: businessentityid
+        description: ID of Business Entity.
+        tests:
+          - unique
+          - not null
+
+      - name: firstname
+        description: First customer name.
+
+      - name: middlename
+        description: Middle customer name.
+
+      - name: lastname
+        description: Last customer name.
+
+      - name: addressid
+        description: ID address.
+        tests:
+          - unique
+          - not null
+
+      - name: city
+        description: Customer city name.
+
+      - name: stateprovincecode
+        description: Customer state province code.
+
+      - name: countryregioncode
+        description: Customer region code.

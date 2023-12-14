@@ -14,10 +14,10 @@ with
     , Final as (
         select 
             row_number() over (order by SalesOrderDetail.productid) as sk_product
-            , SalesOrderDetail.productid
+            , Product.productid
             , Product.name 
-        from SalesOrderDetail
-        left join Product 
+        from Product 
+        left join SalesOrderDetail
             on SalesOrderDetail.productid = Product.productid
     )
 
