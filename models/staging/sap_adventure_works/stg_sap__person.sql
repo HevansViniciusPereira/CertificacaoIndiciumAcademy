@@ -12,8 +12,8 @@ with
             , cast(emailpromotion as int) as emailpromotion
             --, cast(additionalcontactinfo as string) as additionalcontactinfo
             --, cast(demographics as string) as demographics
-            , cast(rowguid as string) as rowguid
-            , cast(modifieddate as timestamp) as modifieddate
+            --, cast(rowguid as string) as rowguid
+            --, cast(modifieddate as timestamp) as modifieddate
         from {{ source('sap_adventure_works', 'person') }}
     )
 

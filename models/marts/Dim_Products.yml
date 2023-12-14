@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: dim_products
+    description: Dimensional table of products.
+    columns:
+      - name: sk_product
+        description: Surrogate key of the table.
+
+      - name: productid
+        description: ID do produto.
+        tests:
+          - unique
+          - not null
+
+      - name: name
+        description: Name of the product.

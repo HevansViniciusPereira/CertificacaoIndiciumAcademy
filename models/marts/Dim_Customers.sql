@@ -1,33 +1,55 @@
 with
     Customer as (
-        select 
-            customerid
-            , personid
-            , storeid
-        from {{ref('stg_sap__customer')}}
+        select *
+        from {{ ref('stg_sap__customer') }}
+    )
+
+    , BusinessEntityAddress as (
+        select *
+        from {{ ref('stg_sap__businessentityaddress') }}
+    )
+
+    , Address as (
+        select *
+        from {{ ref('stg_sap__address') }}
+    )
+
+    , StateProvince as (
+        select *
+        from {{ ref('stg_sap__stateprovince') }}
     )
 
     , Person as (
-        select
-            businessentityid as buid_person
-            , firstname
-            , middlename
-            , lastname
-        from {{ref('stg_sap__person')}}
+        select *
+        from {{ ref('stg_sap__person') }}
+    )
+
+    , SalesOrderDetail as (
+        select *
+        from {{ ref('stg_sap__salesorderdetail') }}
     )
 
     , Final as (
         select
-            row_number() over (order by Customer.customerid, Store.buid_store) as sk_person
+            row_number() over (order by Customer.customerid) as sk_customer
             , Customer.customerid
-            --, Person.buid_person
+            , Person.businessentityid
             , Person.firstname
             , Person.middlename
             , Person.lastname
-        from Customer
-        left join Person 
-            on Customer.personid = Person.buid_person
-        
+            , BusinessEntityAddress.addressid
+            , Address.city
+            , StateProvince.stateprovincecode
+            , StateProvince.countryregioncode
+        from Person
+        left join Customer
+            on Customer.personid = Person.businessentityid
+        left join BusinessEntityAddress
+            on BusinessEntityAddress.businessentityid = Person.businessentityid
+        left join Address
+            on Address.addressid = BusinessEntityAddress.addressid
+        left join StateProvince
+            on StateProvince.stateprovinceid = Address.stateprovinceid
     )
 
 select * from Final
