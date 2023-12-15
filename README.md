@@ -1,6 +1,6 @@
 # Indicium Academy
 
-Repositório para ser utilizado no desafio para a obtenção da certificação de Analytics Engineer by Indicium. Faça o fork deste repositório e o utilize durante o desafio para fazer a insgestão das tabelas do SAP do Adventure Works.
+Repositório utilizado no desafio para a obtenção da certificação de Analytics Engineer by Indicium.
 
 ## Instruções
 
