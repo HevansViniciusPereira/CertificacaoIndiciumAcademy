@@ -1,17 +1,17 @@
 version: 2
 
 models:
-  - name: dim_products
-    description: Dimensional table of products.
-    columns:
-      - name: pk_product
-        description: Primary key of the table.
+- name: Dim_Products
+  description: Dimensional table of products.
+  columns:
+    - name: pk_product
+      description: Primary key of the table.
 
-      - name: productid
-        description: ID do produto.
-        tests:
-          - unique
-          - not null
+    - name: productid
+      description: ID do produto.
+      tests:
+        - unique
+        - not_null
 
-      - name: name
-        description: Name of the product.
+    - name: name
+      description: Name of the product.

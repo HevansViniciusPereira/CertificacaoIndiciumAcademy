@@ -6,64 +6,245 @@ sources:
     schema: sap_adw
     tables:
       - name: address
-      - name: addresstype
-      - name: billofmaterials
-      - name: businessentity
+        description: Table with addresses
+        columns:
+          - name: addressid
+            description: Address ID.
+            tests:
+              - unique
+              - not_null
+          - name: addressline1
+            description: First address line.
+          - name: addressline2
+            description: Second address line.
+          - name: city
+            description: City name.
+          - name: stateprovinceid
+            description: State province ID.
+          - name: postalcode
+            description: Postal code.
+
       - name: businessentityaddress
-      - name: businessentitycontact
-      - name: contacttype
-      - name: countryregion
-      - name: countryregioncurrency
+        description: Table with Business Entity addresses.
+        columns:
+          - name: businessentityid
+            description: Business entity ID.
+          - name: addressid
+            description: address ID.
+          - name: addresstypeid
+            description: Address type ID.
+
       - name: creditcard
-      - name: culture
-      - name: currency
-      - name: currencyrate
+        description: Table with credit card information.
+        columns:
+          - name: creditcardid
+            description: Credit card ID
+          - name: cardtype
+            description: Type of credit card.
+          - name: cardnumber
+            description: Credit card number.
+          - name: expmonth
+            description: Month of credit card expiration.
+          - name: expyear
+            description: Year of credit card expiration.
+
       - name: customer
-      - name: department
-      - name: emailaddress
-      - name: employee
-      - name: employeedepartmenthistory
-      - name: employeepayhistory
-      - name: illustration
-      - name: jobcandidate
-      - name: location
+        description: Table with curtomer information.
+        columns:
+          - name: customerid
+            description: Customer ID.
+          - name: personid
+            description: Person ID.
+          - name: storeid
+            description: Store ID.
+          - name: territoryid
+            description: Territory ID.
+
       - name: person
-      - name: personcreditcard
-      - name: personphone
-      - name: phonenumbertype
+        description: Table with credit card information.
+        columns:
+          - name: businessentityid
+            description: Business entity ID.
+          - name: persontype
+            description: Type of person
+          - name: namestyle
+            description: Name style
+          - name: title
+            description: Person title
+          - name: firstname
+            description: Person first name.
+          - name: middlename
+            description: Person middle name.
+          - name: lastname
+            description: Person last name.
+          - name: suffix
+            description: Person suffix.
+          - name: emailpromotion
+            description: Person email promotion.
+
       - name: product
-      - name: productcategory
-      - name: productcosthistory
-      - name: productdescription
-      - name: productdocument
-      - name: productinventory
-      - name: productlistpricehistory
-      - name: productmodel
-      - name: productmodelillustration
-      - name: productmodelproductdescriptionculture
-      - name: productproductphoto
-      - name: productsubcategory
-      - name: productvendor
-      - name: purchaseorderdetail
-      - name: purchaseorderheader
+        description: Table with product information.
+        columns:
+          - name: productid
+            description: Product ID.
+          - name: name
+            description: Product name.
+          - name: productnumber
+            description: Product number.
+          - name: makeflag
+            description: make flag
+          - name: finishedgoodsflag
+            description: blablablablabla
+          - name: color
+            description: Product color.
+          - name: safetystocklevel
+            description: Product safety stock level.
+          - name: reorderpoint
+            description: blablablablabla
+          - name: standardcost
+            description: Product standard cost.
+          - name: listprice
+            description: balblablabla
+          - name: size
+            description: Product size.
+          - name: sizeunitmeasurecode
+            description: Product size unit measure code.
+          - name: weightunitmeasurecode
+            description: Product weight unit measure code.
+          - name: weight
+            description: Product weight.
+          - name: daystomanufacture
+            description: Product days of manufacture.
+          - name: productline
+            description: Product line.
+          - name: class
+            description: Product class.
+          - name: style
+            description: Product style.
+          - name: productsubcategoryid
+            description: Product subcategory ID.
+          - name: productmodelid
+            description: Product model ID.
+          - name: sellstartdate
+            description: Product sell start date.
+          - name: sellenddate
+            description: Product sell end date.
+          - name: discontinueddate
+            description: Product discontinued date.
+        
       - name: salesorderdetail
+        description: Table with sales order detail information.
+        columns:
+          - name: salesorderid
+            description: Sales order ID.
+          - name: salesorderdetailid
+            description: Sales order detail ID.
+          - name: carriertrackingnumber
+            description: Carrier tracking number.
+          - name: orderqty
+            description: Quantity ordered.
+          - name: productid
+            description: Product ID.
+          - name: specialofferid
+            description: Special offer ID.
+          - name: unitprice
+            description: Unit price.
+          - name: unitpricediscount
+            description: Unit price with discount.
+
       - name: salesorderheader
+        description: Table with sales order header information.
+        columns:
+          - name: salesorderid
+            description: Sales order ID.
+          - name: revisionnumber
+            description: Order revision number.
+          - name: orderdate
+            description: Order date
+          - name: duedate
+            description: blablablabla
+          - name: shipdate
+            description: Order ship date
+          - name: status
+            description: Order status.
+          - name: onlineorderflag
+            description: Online order flag.
+          - name: purchaseordernumber
+            description: Purchase order number.
+          - name: accountnumber
+            description: Account number.
+          - name: customerid
+            description: Customer ID.
+          - name: salespersonid
+            description: Sales person ID.
+          - name: territoryid
+            description: Territory ID.
+          - name: billtoaddressid
+            description: Bill to address ID.
+          - name: shiptoaddressid
+            description: Ship to address ID.
+          - name: shipmethodid
+            description: Ship method ID.
+          - name: creditcardid
+            description: Credit card ID.
+          - name: creditcardapprovalcode
+            description: Credit card approval code.
+          - name: currencyrateid
+            description: Currency rate ID.
+          - name: subtotal
+            description: Sub total
+          - name: taxamt
+            description: Tax ammount
+          - name: freight
+            description: Freight value
+          - name: totaldue
+            description: Total due
+
       - name: salesorderheadersalesreason
-      - name: salespersonquotahistory
+        description: Table with sales reason information.
+        columns:
+          - name: salesorderid
+            description: Sales order ID.
+          - name: salesreasonid
+            description: Sales Reason ID.
+          - name: modifieddate
+            description: Modified date.
+
       - name: salesreason
-      - name: salestaxrate
-      - name: salesterritory
-      - name: scrapreason
-      - name: shift
-      - name: shipmethod
-      - name: shoppingcartitem
-      - name: specialoffer
-      - name: specialofferproduct
+        description: Table with sales reason information.
+        columns:
+          - name: salesreasonid
+            description: Seales reason ID.
+          - name: name
+            description: Sales reason name.
+          - name: reasontype
+            description: Sales reason type.
+          - name: modifieddate
+            description: Modified date
+
       - name: stateprovince
+        description: Table with state province information.
+        columns:
+          - name: stateprovinceid
+            description: State province ID.
+          - name: stateprovincecode
+            description: State province code.
+          - name: countryregioncode
+            description: Country region code.
+          - name: isonlystateprovinceflag
+            description: Is only state province flag.
+          - name: name
+            description: State province name
+          - name: territoryid
+            description: Territory ID.
+
       - name: store
-      - name: transactionhistory
-      - name: transactionhistoryarchive
-      - name: unitmeasure
-      - name: vendor
-      - name: workorder
-      - name: workorderrouting
+        description: Table with store information.
+        columns:
+          - name: businessentityid
+            description: Business entity ID.
+          - name: name
+            description: Store name.
+          - name: salespersonid
+            description: Sales person ID.
+            

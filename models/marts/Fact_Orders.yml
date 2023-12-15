@@ -1,78 +1,74 @@
 version: 2
 
 models:
-  - name: fact_orders
-    description: Fact with orders informations.
-    columns:
-      - name: sk_orders
-        description: Surrogate key for the table.
+- name: Fact_Orders
+  description: Fact with orders informations.
+  columns:
+    - name: sk_orders
+      description: Surrogate key for the table.
+      tests:
+        - not_null
       
-      - name: salesorderid
-        description: Sales order ID.
-        tests:
-          - unique
-          - not null
+    - name: salesorderid
+      description: Sales order ID.
+      tests:
+        - not_null
       
-      - name: salesorderdetailid
-        description: Sales order detail ID.
+    - name: salesorderdetailid
+      description: Sales order detail ID.
+      tests:
+        - not_null
       
-      - name: orderqty
-        description: Quantity purchased.
+    - name: orderqty
+      description: Quantity purchased.
       
-      - name: productid
-        description: ID of product.
-        tests:
-          - unique
-          - not null
+    - name: productid
+      description: ID of product.
       
-      - name: unitprice
-        description: Unit price of the product.
+    - name: unitprice
+      description: Unit price of the product.
       
-      - name: unitpricediscount
-        description: Unit price of the product with discount.
+    - name: unitpricediscount
+      description: Unit price of the product with discount.
       
-      - name: total_trated_value
-        description: Total amount value of the purchase.
+    - name: total_trated_value
+      description: Total amount value of the purchase.
       
-      - name: total_net_trated_value
-        description: Total net amount value of the purchase.
+    - name: total_net_trated_value
+      description: Total net amount value of the purchase.
       
-      - name: customerid
-        description: Customer ID.
-        tests:
-          - unique
-          - not null
+    - name: customerid
+      description: Customer ID.
       
-      - name: territoryid
-        description: Territory ID.
-        tests:
-          - unique
-          - not null
+    - name: territoryid
+      description: Territory ID.
+      tests:
+        - not_null
       
-      - name: orderdate
-        description: Date of order.
+    - name: orderdate
+      description: Date of order.
       
-      - name: shipdate
-        description: Date of shiped order.
+    - name: shipdate
+      description: Date of shiped order.
       
-      - name: status
-        description: Order status.
+    - name: status
+      description: Order status.
       
-      - name: cardtype
-        description: Credit card type.
+    - name: cardtype
+      description: Credit card type.
       
-      - name: subtotal
-        description: Subtotal amount of purchase.
+    - name: subtotal
+      description: Subtotal amount of purchase.
       
-      - name: taxamt
-        description: Tax of transaction.
+    - name: taxamt
+      description: Tax of transaction.
       
-      - name: freight
-        description: Freight value.
+    - name: freight
+      description: Freight value.
       
-      - name: totaldue
-        description: Total with freight and tax.
+    - name: totaldue
+      description: Total with freight and tax.
       
-      - name: reason_name
-        description: Reason of the purchase.
+    - name: reason_name
+      description: Reason of the purchase.
  
