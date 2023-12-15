@@ -1,60 +1,46 @@
 with
-    SalesReason as (
+    Dim_Products as (
         select *
-        from {{ ref('stg_sap__salesreason') }}
+        from {{ ref('Dim_Products') }}
     )
 
-    , CreditCard as (
+    , Dim_Customers as (
         select *
-        from {{ ref('stg_sap__creditcard') }}
+        from {{ ref('Dim_Customers') }}
     )
 
-    , SalesOrderHeaderSalesReason as (
+    , Orders_Aux as (
         select *
-        from {{ ref('stg_sap__salesorderheadersalesreason') }}
-    )
-
-    , SalesOrderDetail as (
-        select *
-        from {{ ref('stg_sap__salesorderdetail') }}
-    )
-
-    , SalesOrderHeader as (
-        select *
-        from {{ ref('stg_sap__salesorderheader') }}
+        from {{ ref('Fact_Orders_Aux') }}
     )
 
     , Final as (
         select
-            row_number() over(order by SalesOrderDetail.salesorderid, SalesOrderHeader.customerid) as sk_orders
-            , SalesOrderDetail.salesorderid
-            , SalesOrderDetail.salesorderdetailid
-            , SalesOrderDetail.orderqty
-            , SalesOrderDetail.productid
-            , SalesOrderDetail.unitprice
-            , SalesOrderDetail.unitpricediscount
-            , SalesOrderDetail.unitprice * SalesOrderDetail.orderqty as total_trated_value
-            , SalesOrderDetail.unitprice * SalesOrderDetail.orderqty * (1 - SalesOrderDetail.unitpricediscount) as total_net_trated_value
-            , SalesOrderHeader.customerid
-            , SalesOrderHeader.territoryid
-            , SalesOrderHeader.orderdate
-            , SalesOrderHeader.shipdate
-            , SalesOrderHeader.status
-            , CreditCard.cardtype
-            , SalesOrderHeader.subtotal
-            , SalesOrderHeader.taxamt
-            , SalesOrderHeader.freight
-            , SalesOrderHeader.totaldue
-            , SalesReason.name as reason_name
-        from SalesOrderHeader
-        inner join SalesOrderDetail
-            on SalesOrderHeader.salesorderid = SalesOrderDetail.salesorderid
-        left join SalesOrderHeaderSalesReason
-            on SalesOrderHeaderSalesReason.salesreasonid = SalesOrderDetail.salesorderid
-        left join SalesReason
-            on SalesReason.salesreasonid = SalesOrderHeaderSalesReason.salesreasonid
-        left join CreditCard
-            on CreditCard.creditcardid = SalesOrderHeader.creditcardid
+            Orders_Aux.sk_orders
+            , Orders_Aux.salesorderid
+            , Orders_Aux.salesorderdetailid
+            , Dim_Customers.pk_customer
+            , Orders_Aux.territoryid
+            , Dim_Products.pk_product
+            , Orders_Aux.orderqty
+            , Orders_Aux.unitprice
+            , Orders_Aux.unitpricediscount
+            , Orders_Aux.total_trated_value
+            , Orders_Aux.total_net_trated_value
+            , Orders_Aux.orderdate
+            , Orders_Aux.shipdate
+            , Orders_Aux.status
+            , Orders_Aux.cardtype
+            , Orders_Aux.subtotal
+            , Orders_Aux.taxamt
+            , Orders_Aux.freight
+            , Orders_Aux.totaldue
+            , Orders_Aux.reason_name
+        from Orders_Aux
+        left join Dim_Products
+            on Orders_Aux.productid = Dim_Products.productid
+        left join Dim_Customers
+            on Orders_Aux.customerid = Dim_Customers.customerid
     )
 
 select * from Final

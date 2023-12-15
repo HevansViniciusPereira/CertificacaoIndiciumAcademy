@@ -4,8 +4,11 @@ models:
   - name: dim_customers
     description: Dimensional table of customers.
     columns:
-      - name: sk_customer
-        description: Surrogate key of the table.
+      - name: pk_customer
+        description: Primary key of the table.
+        tests:
+          - unique
+          - not_null
 
       - name: customerid
         description: ID of customers.

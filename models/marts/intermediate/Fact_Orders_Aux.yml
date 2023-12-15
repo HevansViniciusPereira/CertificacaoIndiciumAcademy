@@ -76,3 +76,8 @@ models:
       - name: reason_name
         description: Reason of the purchase.
  
+      - name: total_trated_value
+        description: Total trated value
+
+      - name: total_net_trated_value
+        description: Total net trated value
