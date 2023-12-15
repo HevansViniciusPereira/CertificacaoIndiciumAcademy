@@ -1,0 +1,24 @@
+version: 2
+
+models:
+  - name: stg_sap__stateprovince
+    description: Table with state province information.
+    columns:
+      - name: stateprovinceid
+        description: State province ID.
+
+      - name: stateprovincecode
+        description: State province code.
+
+      - name: countryregioncode
+        description: Country region code.
+
+      - name: isonlystateprovinceflag
+        description: Is only state province flag.
+
+      - name: name
+        description: State province name
+
+      - name: territoryid
+        description: Territory ID.
+        

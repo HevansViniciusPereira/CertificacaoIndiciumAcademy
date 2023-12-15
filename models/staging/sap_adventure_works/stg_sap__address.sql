@@ -7,9 +7,9 @@ with
             , cast(city as string) as city
             , cast(stateprovinceid as int) as stateprovinceid
             , cast(postalcode as string) as postalcode
-            , cast(spatiallocation as string) as spatiallocation
-            , cast(rowguid as string) as rowguid
-            , cast(modifieddate as timestamp) as modifieddate
+            --, cast(spatiallocation as string) as spatiallocation
+            --, cast(rowguid as string) as rowguid
+            --, cast(modifieddate as timestamp) as modifieddate
         from {{ source('sap_adventure_works', 'address') }}
     )
 

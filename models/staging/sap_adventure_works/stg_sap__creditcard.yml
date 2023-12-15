@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: stg_sap__creditcard
+    description: Table with credit card information.
+    columns:
+      - name: creditcardid
+        description: Credit card ID.
+
+      - name: cardtype
+        description: Type of credit card.
+
+      - name: cardnumber
+        description: Credit card number.
+
+      - name: expmonth
+        description: Month of credit card expiration.
+
+      - name: expyear
+        description: Year of credit card expiration.

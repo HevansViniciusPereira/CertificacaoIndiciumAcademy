@@ -7,8 +7,8 @@ with
             , cast(isonlystateprovinceflag as bool) as isonlystateprovinceflag
             , cast(name as string) as name
             , cast(territoryid as int) as territoryid
-            , cast(rowguid as string) as rowguid
-            , cast(modifieddate as timestamp) as modifieddate
+            --, cast(rowguid as string) as rowguid
+            --, cast(modifieddate as timestamp) as modifieddate
         from {{ source('sap_adventure_works', 'stateprovince') }}
     )
 

@@ -5,8 +5,8 @@ with
             , cast(personid as int) as personid
             , cast(storeid as int) as storeid
             , cast(territoryid as int) as territoryid
-            , cast(rowguid as string) as rowguid
-            , cast(modifieddate as timestamp) as modifieddate
+            --, cast(rowguid as string) as rowguid
+            --, cast(modifieddate as timestamp) as modifieddate
         from {{ source('sap_adventure_works', 'customer') }}
     )
 

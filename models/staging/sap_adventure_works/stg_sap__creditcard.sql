@@ -6,7 +6,7 @@ with
             , cast(cardnumber as bigint) as cardnumber
             , cast(expmonth as int) as expmonth
             , cast(expyear as int) as expyear
-            , cast(modifieddate as timestamp) as modifieddate
+            --, cast(modifieddate as timestamp) as modifieddate
         from {{ source('sap_adventure_works', 'creditcard') }}
     )
 

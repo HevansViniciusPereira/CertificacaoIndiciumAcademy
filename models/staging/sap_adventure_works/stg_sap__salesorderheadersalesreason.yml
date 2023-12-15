@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_sap__salesorderheadersalesreason
+    description: Table with sales reason information.
+    columns:
+      - name: salesorderid
+        description: Sales order ID.
+
+      - name: salesreasonid
+        description: Sales Reason ID.
+
+      - name: modifieddate
+        description: Modified date.
+
+

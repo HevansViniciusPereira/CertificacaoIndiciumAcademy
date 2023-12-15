@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: stg_sap__salesorderdetail
+    description: Table with sales order detail information.
+    columns:
+      - name: salesorderid
+        description: Sales order ID.
+
+      - name: salesorderdetailid
+        description: Sales order detail ID.
+
+      - name: carriertrackingnumber
+        description: Carrier tracking number.
+
+      - name: orderqty
+        description: Quantity ordered.
+
+      - name: productid
+        description: Product ID.
+
+      - name: specialofferid
+        description: Special offer ID.
+
+      - name: unitprice
+        description: Unit price.
+
+      - name: unitpricediscount
+        description: Unit price with discount.

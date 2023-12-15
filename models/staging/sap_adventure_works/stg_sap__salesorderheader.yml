@@ -1,0 +1,71 @@
+version: 2
+
+models:
+  - name: stg_sap__salesorderheader
+    description: Table with sales order header information.
+    columns:
+      - name: salesorderid
+        description: Sales order ID.
+
+      - name: revisionnumber
+        description: Order revision number.
+
+      - name: orderdate
+        description: Order date
+
+      - name: duedate
+        description: blablablabla
+
+      - name: shipdate
+        description: Order ship date
+
+      - name: status
+        description: Order status.
+
+      - name: onlineorderflag
+        description: Online order flag.
+
+      - name: purchaseordernumber
+        description: Purchase order number.
+
+      - name: accountnumber
+        description: Account number.
+
+      - name: customerid
+        description: Customer ID.
+
+      - name: salespersonid
+        description: Sales person ID.
+
+      - name: territoryid
+        description: Territory ID.
+
+      - name: billtoaddressid
+        description: Bill to address ID.
+
+      - name: shiptoaddressid
+        description: Ship to address ID.
+
+      - name: shipmethodid
+        description: Ship method ID.
+
+      - name: creditcardid
+        description: Credit card ID.
+
+      - name: creditcardapprovalcode
+        description: Credit card approval code.
+
+      - name: currencyrateid
+        description: Currency rate ID.
+
+      - name: subtotal
+        description: Sub total
+
+      - name: taxamt
+        description: Tax ammount
+
+      - name: freight
+        description: Freight value
+
+      - name: totaldue
+        description: Total due

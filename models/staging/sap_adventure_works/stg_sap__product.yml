@@ -1,0 +1,74 @@
+version: 2
+
+models:
+  - name: stg_sap__product
+    description: Table with product information.
+    columns:
+      - name: productid
+        description: Product ID.
+
+      - name: name
+        description: Product name.
+
+      - name: productnumber
+        description: Product number.
+
+      - name: makeflag
+        description: make flag
+
+      - name: finishedgoodsflag
+        description: blablablablabla
+
+      - name: color
+        description: Product color.
+
+      - name: safetystocklevel
+        description: Product safety stock level.
+
+      - name: reorderpoint
+        description: blablablablabla
+
+      - name: standardcost
+        description: Product standard cost.
+
+      - name: listprice
+        description: balblablabla
+
+      - name: size
+        description: Product size.
+
+      - name: sizeunitmeasurecode
+        description: Product size unit measure code.
+
+      - name: weightunitmeasurecode
+        description: Product weight unit measure code.
+
+      - name: weight
+        description: Product weight.
+
+      - name: daystomanufacture
+        description: Product days of manufacture.
+
+      - name: productline
+        description: Product line.
+
+      - name: class
+        description: Product class.
+
+      - name: style
+        description: Product style.
+
+      - name: productsubcategoryid
+        description: Product subcategory ID.
+
+      - name: productmodelid
+        description: Product model ID.
+
+      - name: sellstartdate
+        description: Product sell start date.
+
+      - name: sellenddate
+        description: Product sell end date.
+
+      - name: discontinueddate
+        description: Product discontinued date.

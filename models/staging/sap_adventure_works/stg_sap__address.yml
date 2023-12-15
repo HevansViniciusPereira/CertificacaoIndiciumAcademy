@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: address
+    description: Table with addresses
+    columns:
+      - name: addressid
+        description: Address ID.
+
+      - name: addressline1
+        description: First address line.
+
+      - name: addressline2
+        description: Second address line.
+
+      - name: city
+        description: City name.
+
+      - name: stateprovinceid
+        description: State province ID.
+
+      - name: postalcode
+        description: Postal code.
