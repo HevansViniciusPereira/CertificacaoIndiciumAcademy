@@ -13,7 +13,7 @@ with
 
     , Final as (
         select 
-            row_number() over (order by SalesOrderDetail.productid) as sk_product
+            row_number() over (order by SalesOrderDetail.productid) as pk_product
             , Product.productid
             , Product.name 
         from Product 

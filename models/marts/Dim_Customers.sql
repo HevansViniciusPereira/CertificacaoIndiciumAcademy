@@ -31,13 +31,13 @@ with
 
     , Final as (
         select
-            row_number() over (order by Customer.customerid) as sk_customer
+            row_number() over (order by Customer.customerid) as pk_customer
             , Customer.customerid
             , Person.businessentityid
+            , BusinessEntityAddress.addressid
             , Person.firstname
             , Person.middlename
             , Person.lastname
-            , BusinessEntityAddress.addressid
             , Address.city
             , StateProvince.stateprovincecode
             , StateProvince.countryregioncode
