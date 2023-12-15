@@ -24,8 +24,8 @@ with
             , cast(sellstartdate as timestamp) as sellstartdate
             , cast(sellenddate as timestamp) as sellenddate
             , cast(discontinueddate as int) as discontinueddate
-            , cast(rowguid as string) as rowguid
-            , cast(modifieddate as timestamp) as modifieddate
+            --, cast(rowguid as string) as rowguid
+            --, cast(modifieddate as timestamp) as modifieddate
         from {{ source('sap_adventure_works', 'product') }}
     )
 

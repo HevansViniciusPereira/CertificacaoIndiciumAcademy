@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stg_sap__customer
+    description: Table with curtomer information.
+    columns:
+      - name: customerid
+        description: Customer ID.
+
+      - name: personid
+        description: Person ID.
+
+      - name: storeid
+        description: Store ID.
+
+      - name: territoryid
+        description: Territory ID.

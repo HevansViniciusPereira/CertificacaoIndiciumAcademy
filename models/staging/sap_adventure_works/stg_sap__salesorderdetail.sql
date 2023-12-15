@@ -9,8 +9,8 @@ with
             , cast(specialofferid as int) as specialofferid
             , cast(unitprice as decimal) as unitprice
             , cast(unitpricediscount as decimal) as unitpricediscount
-            , cast(rowguid as string) as rowguid
-            , cast(modifieddate as timestamp) as modifieddate
+            --, cast(rowguid as string) as rowguid
+            --, cast(modifieddate as timestamp) as modifieddate
         from {{ source('sap_adventure_works', 'salesorderdetail') }}
     )
 

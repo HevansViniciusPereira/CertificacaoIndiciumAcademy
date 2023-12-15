@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_sap__store
+    description: Table with store information.
+    columns:
+      - name: businessentityid
+        description: Business entity ID.
+        
+      - name: name
+        description: Store name.
+        
+      - name: salespersonid
+        description: Sales person ID.
+        

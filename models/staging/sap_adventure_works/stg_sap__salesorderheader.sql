@@ -24,8 +24,8 @@ with
             , cast(freight as decimal) as freight
             , cast(totaldue as decimal) as totaldue
             --, cast(comment as ) as 
-            , cast(rowguid as string) as rowguid
-            , cast(modifieddate as timestamp) as modifieddate
+            --, cast(rowguid as string) as rowguid
+            --, cast(modifieddate as timestamp) as modifieddate
         from {{ source('sap_adventure_works', 'salesorderheader') }}
     )
 
