@@ -34,6 +34,14 @@ sources:
           - name: addresstypeid
             description: Address type ID.
 
+      - name: countryregion
+        description: Table with country region information.
+        columns:
+          - name: countryregioncode
+            description: country region code
+          - name: name
+            description: country name
+
       - name: creditcard
         description: Table with credit card information.
         columns:

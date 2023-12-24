@@ -28,14 +28,17 @@ with
             , Orders_Aux.total_trated_value
             , Orders_Aux.total_net_trated_value
             , Orders_Aux.orderdate
-            , Orders_Aux.shipdate
+            --, Orders_Aux.shipdate
             , Orders_Aux.status
             , Orders_Aux.cardtype
             , Orders_Aux.subtotal
             , Orders_Aux.taxamt
             , Orders_Aux.freight
             , Orders_Aux.totaldue
-            , Orders_Aux.reason_name
+            , case
+                when Orders_Aux.reasontype is null then 'Not Informed'
+                else Orders_Aux.reasontype
+            end as reasonname
         from Orders_Aux
         left join Dim_Products
             on Orders_Aux.productid = Dim_Products.productid

@@ -9,6 +9,12 @@ with
         from {{ ref('stg_sap__businessentityaddress') }}
     )
 
+    , CountryRegion as (
+        select *
+        from {{ ref('stg_sap__countryregion') }}
+    )
+    
+
     , Address as (
         select *
         from {{ ref('stg_sap__address') }}
@@ -41,7 +47,7 @@ with
             , concat(ifnull(Person.firstname,' '),' ',ifnull(Person.middlename,' '),' ',ifnull(Person.lastname,' ')) as fullname
             , Address.city
             , StateProvince.name as provincename
-            , StateProvince.countryregioncode
+            , CountryRegion.name as countryname
         from Person
         left join Customer
             on Customer.personid = Person.businessentityid
@@ -51,6 +57,8 @@ with
             on Address.addressid = BusinessEntityAddress.addressid
         left join StateProvince
             on StateProvince.stateprovinceid = Address.stateprovinceid
+        left join CountryRegion
+            on StateProvince.countryregioncode = CountryRegion.countryregioncode
     )
 
 select * from Final
