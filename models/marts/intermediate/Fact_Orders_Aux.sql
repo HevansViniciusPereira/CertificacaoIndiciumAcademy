@@ -25,7 +25,7 @@ with
     )
 
     , Final as (
-        select
+        select 
             row_number() over(order by SalesOrderDetail.salesorderid, SalesOrderHeader.customerid) as sk_orders
             , SalesOrderDetail.salesorderid
             , SalesOrderDetail.salesorderdetailid
@@ -36,21 +36,21 @@ with
             , SalesOrderDetail.unitprice
             , SalesOrderDetail.unitpricediscount
             , SalesOrderHeader.orderdate
-            , SalesOrderHeader.shipdate
+            --, SalesOrderHeader.shipdate
             , SalesOrderHeader.status
             , CreditCard.cardtype
             , SalesOrderHeader.subtotal
             , SalesOrderHeader.taxamt
             , SalesOrderHeader.freight
             , SalesOrderHeader.totaldue
-            , SalesReason.name as reason_name
+            , SalesReason.reasontype
             , SalesOrderDetail.unitprice * SalesOrderDetail.orderqty as total_trated_value
             , SalesOrderDetail.unitprice * SalesOrderDetail.orderqty * (1 - SalesOrderDetail.unitpricediscount) as total_net_trated_value
-        from SalesOrderHeader
-        inner join SalesOrderDetail
+        from SalesOrderDetail
+        left join SalesOrderHeader
             on SalesOrderHeader.salesorderid = SalesOrderDetail.salesorderid
         left join SalesOrderHeaderSalesReason
-            on SalesOrderHeaderSalesReason.salesreasonid = SalesOrderDetail.salesorderid
+            on SalesOrderHeader.salesorderid = SalesOrderHeaderSalesReason.salesorderid
         left join SalesReason
             on SalesReason.salesreasonid = SalesOrderHeaderSalesReason.salesreasonid
         left join CreditCard
