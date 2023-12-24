@@ -102,17 +102,17 @@ sources:
           - name: makeflag
             description: make flag
           - name: finishedgoodsflag
-            description: blablablablabla
+            description: finished goods flag
           - name: color
             description: Product color.
           - name: safetystocklevel
             description: Product safety stock level.
           - name: reorderpoint
-            description: blablablablabla
+            description: reorder point
           - name: standardcost
             description: Product standard cost.
           - name: listprice
-            description: balblablabla
+            description: list of prices.
           - name: size
             description: Product size.
           - name: sizeunitmeasurecode
@@ -170,7 +170,7 @@ sources:
           - name: orderdate
             description: Order date
           - name: duedate
-            description: blablablabla
+            description: due date
           - name: shipdate
             description: Order ship date
           - name: status
