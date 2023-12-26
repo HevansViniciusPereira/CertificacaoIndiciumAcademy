@@ -47,7 +47,7 @@ with
             , SalesOrderDetail.unitprice * SalesOrderDetail.orderqty as total_trated_value
             , SalesOrderDetail.unitprice * SalesOrderDetail.orderqty * (1 - SalesOrderDetail.unitpricediscount) as total_net_trated_value
         from SalesOrderDetail
-        left join SalesOrderHeader
+        inner join SalesOrderHeader
             on SalesOrderHeader.salesorderid = SalesOrderDetail.salesorderid
         left join SalesOrderHeaderSalesReason
             on SalesOrderHeader.salesorderid = SalesOrderHeaderSalesReason.salesorderid
